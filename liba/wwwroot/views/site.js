@@ -49,6 +49,7 @@ async function loadBooks(token, title="", author="", year1=0, year2=2025) {
             if (b.books[i]?.title) {
                 let file = b.books[i]?.file.replace("/", "\/");
                 if (role === "admin") {
+
                     node.innerHTML +=
                                        `
                                 <div  class="card" style="width: 18rem; float:left; margin-right:5%; margin-bottom:2%; " onmouseenter="mouseIn(` + b.books[i]?.id + `)" onmouseleave="mouseOut(` + b.books[i]?.id +`)">
@@ -125,9 +126,11 @@ async function deleteBook(id) {
         if (response.ok === true) {
 
             loadBooks(token);
+            toastr.info("Book is deleted!");
         }
         else
-            console.log("Status: ", response.status);
+            toastr.warnin("Something goes wrong...");
+
     }
     else {
         return;
@@ -230,7 +233,10 @@ function download(id, url) {
 async function getTokenAsync() {
 
     document.getElementById('errorLogin').innerHTML = "";
-
+    if (!validateEmail(document.getElementById("emailLogin").value)) {
+        document.getElementById('errorLogin').innerHTML = "There is bad email!";   
+        return;
+    }
     var log = JSON.stringify({ "login": document.getElementById("emailLogin").value, "password": document.getElementById("passwordLogin").value });
     //var elem = document.getElementById('modalLoginForm');
     //elem.parentNode.removeChild(elem);
@@ -458,12 +464,15 @@ $('#editForm')
                 document.getElementById('imageEdit').value = "";
                 //document.getElementById('editBook').style.display = "none";
                 await loadBooks(token);
+                toastr.info("Book is edited!");
 
                 //loadBooks(token);
 
             },
             error: function (data) {
                 document.getElementById('errorEditing').innerHTML = data.responseJSON.message;
+                toastr.warning("Something goes wrong!");
+
                 //loadBooks(token);
             }
 

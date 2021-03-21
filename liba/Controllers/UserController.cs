@@ -27,7 +27,7 @@ namespace liba.Controllers
                 search = search != null ? search : "";
                 author = author != null ? author : "";
 
-                var books = _db.Books.Where(x => x.Title.Contains(search) && x.Year >= year1 && x.Year <= year2 && x.Author.Contains(author)).OrderByDescending(x=>x.Id).ToList();
+                var books = _db.Books.Where(x => x.Title.ToLower().Contains(search.ToLower()) && x.Year >= year1 && x.Year <= year2 && x.Author.ToLower().Contains(author.ToLower())).OrderByDescending(x=>x.Id).ToList();
                 return Ok(new { books = books });
             }
             catch(Exception)

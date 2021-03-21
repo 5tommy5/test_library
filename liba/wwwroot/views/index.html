@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="toastr.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -77,16 +78,16 @@
     <button id="searchButton">Search</button>-->
     <div id="content" style="margin-left:15%; margin-right:15%; margin-top:3%;"></div>
     <!--<div id="editBook" style=" display:none;">-->
-        <!--<form id="editForm">
-            <input type="number" name="id" id="id" value="" style="display:none;" />
-            <input type="text" name="title" id="editTitle" value="" placeholder="Title" />
-            <input type="text" name="author" id="editAuthor" value="" placeholder="Author" />
-            <input type="number" name="year" id="editYear" value="" placeholder="Year" />
-            <input type="file" id="imageEdit" name="Img" value="" />
-            <input type="file" id="fileEdit" name="uploadedFile" value="" />
-            <button type="submit" id="editButton">Save</button>
-        </form>-->
-        <!--<form style="float: right; margin-right:30px;" id="editForm">
+    <!--<form id="editForm">
+        <input type="number" name="id" id="id" value="" style="display:none;" />
+        <input type="text" name="title" id="editTitle" value="" placeholder="Title" />
+        <input type="text" name="author" id="editAuthor" value="" placeholder="Author" />
+        <input type="number" name="year" id="editYear" value="" placeholder="Year" />
+        <input type="file" id="imageEdit" name="Img" value="" />
+        <input type="file" id="fileEdit" name="uploadedFile" value="" />
+        <button type="submit" id="editButton">Save</button>
+    </form>-->
+    <!--<form style="float: right; margin-right:30px;" id="editForm">
             <input type="number" name="id" id="id" value="" style="display:none;" />
             <div class="mb-3">
                 <label for="editTitle" class="visually-hidden">Title</label>
@@ -145,7 +146,7 @@
                     <span class="text-danger" id="errorLogin"></span>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <input type="button" class="btn btn-default" id="submitLogin" value="Login"/>
+                    <input type="button" class="btn btn-default" id="submitLogin" value="Login" />
                     <!--<input type="button" id="submitLogin" />-->
 
                 </div>
@@ -202,7 +203,7 @@
                     </button>
                 </div>
                 <div class="modal-body mx-3">
-                    <form  id="editForm">
+                    <form id="editForm">
                         <input type="number" name="id" id="id" value="" style="display:none;" />
                         <div class="mb-3">
                             <label for="editTitle" class="visually-hidden">Title</label>
@@ -228,7 +229,7 @@
                             <span id="errorEditing" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <button type="submit"  class="btn btn-primary mb-3" id="editButton">Save</button>
+                            <button type="submit" class="btn btn-primary mb-3" id="editButton">Save</button>
                         </div>
                     </form>
 
@@ -247,6 +248,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <script src="toastr.min.js"></script>
 
     <script src="site.js"></script>
 

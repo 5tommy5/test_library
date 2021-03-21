@@ -41,7 +41,23 @@ namespace liba.Controllers
                 return BadRequest(new { message = "Hmm... its not working. Message to developer, please!"});
 
             var form = Request.Form;
+            try
+            {
+                if (form.Files[1].FileName == null)
+                {
+                    return BadRequest(new { message = "Please, add file and image!" });
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest(new { message = "Please, add file and image!" });
 
+            }
+
+            if (form.Files[0].FileName == null)
+            {
+                return BadRequest(new { message = "Please, add file and image!" });
+            }
             using (var readStream = form.Files[1].OpenReadStream())
             {
                 var dateStr = DateTime.Now.ToString().Replace(".", "").Replace(" ", "").Replace(":", "");

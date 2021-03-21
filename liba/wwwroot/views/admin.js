@@ -1,4 +1,5 @@
 ﻿var tokenKey = "accessToken";
+
 $(document).ready(ready);
 function createBook() {
     $.ajax({
@@ -16,7 +17,7 @@ function createBook() {
 $('#formId')
     .submit(function (e) {
         const token = sessionStorage.getItem(tokenKey);
-
+        document.getElementById('errorCreate').innerHTML = "";
         $.ajax({
             url: 'http://localhost:63991/api/admin/createbook',
             type: 'POST',
@@ -30,7 +31,7 @@ $('#formId')
                 document.getElementById('year').value = "";
                 document.getElementById('uploadedFile').value = "";
                 document.getElementById('img').value = "";
-            },
+                toastr.success('Successfuly created!');            },
             error: function (message) {
                 document.getElementById('errorCreate').innerHTML = message.responseJSON?.message;
             }
