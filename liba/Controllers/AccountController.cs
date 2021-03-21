@@ -76,28 +76,35 @@ namespace liba.Controllers
 
         private ClaimsIdentity GetIdentity(string username, string password)
         {
-            User person = _db.Users.FirstOrDefault(x => x.Login == username );
-            
-            if (person != null)
+            try
             {
-                if (VerifyHashedPassword(person.Password, password))
+                User person = _db.Users.FirstOrDefault(x => x.Login == username);
+
+                if (person != null)
                 {
-                    var claims = new List<Claim>
+                    if (VerifyHashedPassword(person.Password, password))
+                    {
+                        var claims = new List<Claim>
                     {
                     new Claim(ClaimsIdentity.DefaultNameClaimType, person.Login),
                     new Claim(ClaimsIdentity.DefaultRoleClaimType, person.Role)
                     };
-                    ClaimsIdentity claimsIdentity =
-                    new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
-                    ClaimsIdentity.DefaultRoleClaimType);
-                    return claimsIdentity;
+                        ClaimsIdentity claimsIdentity =
+                        new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                        ClaimsIdentity.DefaultRoleClaimType);
+                        return claimsIdentity;
+                    }
+                    return null;
+
                 }
                 return null;
-
+            }
+            catch (Exception)
+            {
+                return null;
             }
 
-            // если пользователя не найдено
-            return null;
+            
         }
         [Authorize]
         [HttpGet]
@@ -120,7 +127,7 @@ namespace liba.Controllers
             }
 
         }
-        public static string HashPassword(string password)
+        private static string HashPassword(string password)
         {
             byte[] salt;
             byte[] buffer2;
@@ -138,7 +145,7 @@ namespace liba.Controllers
             Buffer.BlockCopy(buffer2, 0, dst, 0x11, 0x20);
             return Convert.ToBase64String(dst);
         }
-        public static bool VerifyHashedPassword(string hashedPassword, string password)
+        private static bool VerifyHashedPassword(string hashedPassword, string password)
         {
             byte[] buffer4;
             if (hashedPassword == null)

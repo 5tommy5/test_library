@@ -423,7 +423,21 @@ $('#orangeForm-pass').
     });
 $('#editForm')
     .submit(function (e) {
+        e.preventDefault();
+        let fileName = document.getElementById('fileEdit').value;
+        let imgName = document.getElementById('imageEdit').value;
+
         const token = sessionStorage.getItem(tokenKey);
+        if (document.getElementById('fileEdit').value !== "" && fileName.substr(fileName.length - 4) !== ".pdf") {
+            document.getElementById('errorEditing').innerHTML = "Please, choose .PDF File!";
+            return;
+        }
+        if (document.getElementById('imageEdit').value !== "" && imgName.substr(imgName.length - 4) !== ".jpeg"
+            && imgName.substr(imgName.length - 4) !== ".jpg"
+            && imgName.substr(imgName.length - 4) !== ".png") {
+            document.getElementById('errorEditing').innerHTML = "Please, choose image with .JPG, .JPEG or .PNG extension!";
+            return;
+        }
 
         $.ajax({
             url: 'http://localhost:63991/api/admin/editbook',
@@ -432,7 +446,7 @@ $('#editForm')
             headers: { "Authorization": "Bearer " + token },
             processData: false,
             contentType: false,
-            success: function () {
+            success: async function () {
                 //document.getElementById("modalEditForm").style.display = "none";
                 //var content = document.querySelector(".modal-backdrop");
                 //content.removeAttribute("class");
@@ -442,16 +456,19 @@ $('#editForm')
                 document.getElementById('editYear').value = "";
                 document.getElementById('fileEdit').value = "";
                 document.getElementById('imageEdit').value = "";
-                document.getElementById('editBook').style.display = "none";
+                //document.getElementById('editBook').style.display = "none";
+                await loadBooks(token);
+
+                //loadBooks(token);
 
             },
             error: function (data) {
                 document.getElementById('errorEditing').innerHTML = data.responseJSON.message;
+                //loadBooks(token);
             }
 
         });
-        e.preventDefault();
-        loadBooks(token);
+        //e.preventDefault();
 
 
     });

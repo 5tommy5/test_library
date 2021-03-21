@@ -44,8 +44,11 @@ namespace liba.Controllers
 
             using (var readStream = form.Files[1].OpenReadStream())
             {
-                string path = "/Files/" + b.title + "_" + b.uploadedFile.FileName;
+                var dateStr = DateTime.Now.ToString().Replace(".", "").Replace(" ", "").Replace(":", "");
+
+                string path = "/Files/" + b.title + "_" + dateStr + "_" + b.uploadedFile.FileName;
                 path = path.Replace("#", "sharp");
+                path = path.Replace(" ", "");
                 
                 var ext = Path.GetExtension(path);
 
@@ -82,8 +85,11 @@ namespace liba.Controllers
             using (var readStream = form.Files[0].OpenReadStream())
             {
                 // путь к папке Files
-                string path = "/img/" + b.title + "_" + b.img.FileName;
+                var dateStr = DateTime.Now.ToString().Replace(".", "").Replace(" ", "").Replace(":", "");
+
+                string path = "/img/" + b.title + "_" + dateStr + "_" + b.img.FileName;
                 path = path.Replace("#", "sharp");
+                path = path.Replace(" ", "");
                 var ext = Path.GetExtension(path);
 
                 if ( !permittedextensionsImg.Contains(ext))
@@ -116,7 +122,7 @@ namespace liba.Controllers
         [RequestSizeLimit(209715200)]
         public async Task<IActionResult> EditBook([FromForm] CreateBook b)
         {
-            string[] permittedextensions = { ".txt", ".pdf" };
+            string[] permittedextensions = { ".pdf" };
             string[] permittedextensionsImg = { ".png", ".jpg", ".jpeg" };
             try
             {
@@ -130,9 +136,11 @@ namespace liba.Controllers
                 }
                 if (b.uploadedFile != null)
                 {
-                    // путь к папке Files
-                    string path = "/Files/" + b.title + "_" + b.uploadedFile.FileName;
+                    var dateStr = DateTime.Now.ToString().Replace(".", "").Replace(" ", "").Replace(":", "");
+
+                    string path = "/Files/" + b.title + "_" + dateStr + "_" + b.uploadedFile.FileName;
                     path = path.Replace("#", "sharp");
+                    path = path.Replace(" ", "");
 
                     var ext = Path.GetExtension(path);
 
@@ -153,9 +161,12 @@ namespace liba.Controllers
 
                 if (b.img != null)
                 {
-                    // путь к папке Files
-                    string path = "/img/" + b.title + "_" + b.img.FileName;
+                    var dateStr = DateTime.Now.ToString().Replace(".", "").Replace(" ", "").Replace(":", "");
+                    string path = "/img/" + b.title + "_" + dateStr + "_" + b.img.FileName;
                     path = path.Replace("#", "sharp");
+                    path = path.Replace(" ", "");
+
+
                     var ext = Path.GetExtension(path);
                     if (!permittedextensionsImg.Contains(ext))
                     {

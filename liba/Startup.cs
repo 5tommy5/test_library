@@ -66,10 +66,7 @@ namespace liba
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var options = new RewriteOptions()               // удаление концевого слеша
-                    .AddRedirect("(.*)/$", "views/index.html");
 
-            app.UseRewriter(options);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
