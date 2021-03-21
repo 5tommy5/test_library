@@ -1,0 +1,254 @@
+﻿<html>
+<head>
+    <title>!DOCTYPE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <!--<input id="emailLogin" placeholder="Login" />
+    <input id="passwordLogin" placeholder="Password" />
+    <input type="button" id="submitLogin" />-->
+    <!--<div class="text-center" id="openLogin">
+        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">
+            Launch
+            Modal Login Form
+        </a>
+    </div>
+    <div class="text-center" id="openRegister">
+        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">
+            Launch
+            Modal Register Form
+        </a>
+    </div>-->
+    <!--<input type="button" value="Logout" id="logOut" />-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/views/index.html">Home</a>
+                    </li>
+                    <li class="nav-item" id="openRegister">
+                        <a href="" class="nav-link" data-toggle="modal" data-target="#modalRegisterForm">
+                            Registration
+                        </a>
+                    </li>
+                    <li class="nav-item" id="openLogin">
+
+                        <a href="" class="nav-link" data-toggle="modal" data-target="#modalLoginForm">
+                            Login
+                        </a>
+
+                    </li>
+                    <li class="nav-item" id="createBookLink" style="display:none;">
+                        <a class="nav-link" href="/views/admin.html">Create book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" id="logOut">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-light ">
+        <div class="container-fluid">
+            <div class="row" style="margin-left:35%;">
+                <input class="form-control me-2 col-sm" type="text" placeholder="Title" id="searchName" style="margin-right:10px;" />
+                <input class="form-control me-2 col-sm" type="text" placeholder="Author" id="searchAuthor" style="margin-right:10px;" />
+                <input class="form-control me-2 col-sm" type="number" placeholder="From" id="searchYear1" style="margin-right:10px;" />
+                <input class="form-control me-2 col-sm" type="number" placeholder="To" id="searchYear2" style="margin-right:10px;" />
+
+                <!--<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+                <button class="btn btn-outline-success" id="searchButton">Search</button>
+            </div>
+        </div>
+    </nav>
+    <!--<span id="userName"></span>-->
+    <!--<input type="text" placeholder="Search name" id="searchName"/>
+    <input type="text" placeholder="Search author" id="searchAuthor"/>
+    <input type="number" placeholder="Search from which year" id="searchYear1"/>
+    <input type="number" placeholder="Search for which year" id="searchYear2"/>
+    <button id="searchButton">Search</button>-->
+    <div id="content" style="margin-left:15%; margin-right:15%; margin-top:3%;"></div>
+    <!--<div id="editBook" style=" display:none;">-->
+        <!--<form id="editForm">
+            <input type="number" name="id" id="id" value="" style="display:none;" />
+            <input type="text" name="title" id="editTitle" value="" placeholder="Title" />
+            <input type="text" name="author" id="editAuthor" value="" placeholder="Author" />
+            <input type="number" name="year" id="editYear" value="" placeholder="Year" />
+            <input type="file" id="imageEdit" name="Img" value="" />
+            <input type="file" id="fileEdit" name="uploadedFile" value="" />
+            <button type="submit" id="editButton">Save</button>
+        </form>-->
+        <!--<form style="float: right; margin-right:30px;" id="editForm">
+            <input type="number" name="id" id="id" value="" style="display:none;" />
+            <div class="mb-3">
+                <label for="editTitle" class="visually-hidden">Title</label>
+                <input type="text" class="form-control" name="title" id="editTitle" value="" placeholder="Title" />
+            </div>
+            <div class="mb-3">
+                <label for="editAuthor" class="visually-hidden">Author</label>
+                <input type="text" class="form-control" name="author" id="editAuthor" value="" placeholder="Author" />
+            </div>
+            <div class="mb-3">
+                <label for="editYear" class="visually-hidden">Year</label>
+                <input type="text" class="form-control" name="year" id="editYear" value="" placeholder="Year" />
+            </div>
+            <div class="mb-3">
+                <label for="imageEdit" class="form-label">Image</label>
+                <input class="form-control" type="file" id="imageEdit" name="Img">
+            </div>
+            <div class="mb-3">
+                <label for="fileEdit" class="form-label">File</label>
+                <input type="file" class="form-control" id="fileEdit" name="uploadedFile" />
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary mb-3" id="editButton">Save</button>
+            </div>
+        </form>
+    </div>-->
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+                    <button type="button" id="closeSignIn" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <!--<input type="email" id="defaultForm-email" class="form-control validate">-->
+                        <input type="email" id="emailLogin" placeholder="Login" class="form-control validate" />
+
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <!--<input type="password" id="defaultForm-pass" class="form-control validate">-->
+                        <input type="password" id="passwordLogin" placeholder="Password" class="form-control validate" />
+
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+                    </div>
+
+                </div>
+                <div class="md-form mb-4 d-flex justify-content-center">
+                    <span class="text-danger" id="errorLogin"></span>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <input type="button" class="btn btn-default" id="submitLogin" value="Login"/>
+                    <!--<input type="button" id="submitLogin" />-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+                    <button type="button" id="closeRegisterModal" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" id="orangeForm-email" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
+                        <label id="signEmailError" class="text-danger"></label>
+
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-lock prefix grey-text"></i>
+
+                        <input type="password" id="orangeForm-pass" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" id="orangeForm-ConfirmPass" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">Confirm password</label>
+                        <label id="signError" style="display:none;" class="text-danger"></label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button id="signUp" class="btn btn-deep-orange">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalEditForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Edit book</h4>
+                    <button id="closeEditModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <form  id="editForm">
+                        <input type="number" name="id" id="id" value="" style="display:none;" />
+                        <div class="mb-3">
+                            <label for="editTitle" class="visually-hidden">Title</label>
+                            <input type="text" class="form-control" name="title" id="editTitle" value="" placeholder="Title" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAuthor" class="visually-hidden">Author</label>
+                            <input type="text" class="form-control" name="author" id="editAuthor" value="" placeholder="Author" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="editYear" class="visually-hidden">Year</label>
+                            <input type="text" class="form-control" name="year" id="editYear" value="" placeholder="Year" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="imageEdit" class="form-label">Image</label>
+                            <input class="form-control" type="file" id="imageEdit" name="Img">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileEdit" class="form-label">File</label>
+                            <input type="file" class="form-control" id="fileEdit" name="uploadedFile" />
+                        </div>
+                        <div class="mb-3">
+                            <span id="errorEditing" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit"  class="btn btn-primary mb-3" id="editButton">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script src="site.js"></script>
+
+</body>
+</html>

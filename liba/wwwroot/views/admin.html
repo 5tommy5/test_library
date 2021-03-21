@@ -1,0 +1,74 @@
+﻿<html>
+<head>
+    <title>!DOCTYPE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/views/index.html">Home</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="createBook" style="display: none;">
+        <form id="formId" style="width:50%; margin-left:25%; margin-top:2%;">
+            <h2>
+                Create book:
+            </h2>
+            <div class="mb-3">
+
+                <label for="title" class="visually-hidden">Title</label>
+                <input id="title" type="text" class="form-control" name="title" placeholder="Set title" /><br />
+            </div>
+            <div class="mb-3">
+                <label for="author" class="visually-hidden">Author</label>
+                <input id="author" class="form-control" type="text" name="author" placeholder="Author" /><br />
+            </div>
+            <div class="mb-3">
+                <label for="year" class="visually-hidden">Year</label><br />
+                <input id="year" class="form-control" type="number" name="year" placeholder="Year" /><br />
+            </div>
+            <div class="mb-3">
+                <label for="Img" class="form-label">Image</label>
+                <input id="img" type="file" class="form-control" name="Img" placeholder="Image" accept="image/jpeg,image/png,image/gif" />
+            </div>
+            <div class="mb-3">
+                <label for="upliadedFile" class="form-label">File book</label>
+                <input id="uploadedFile" type="file" class="form-control" name="uploadedFile" placeholder="File" accept="application/pdf" />
+            </div>
+            <div class="mb-3">
+                <span id="errorCreate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary mb-3">Create</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script defer src="admin.js"></script>
+    <!--<script src="site.js"></script>-->
+
+</body>
+</html>
