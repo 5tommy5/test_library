@@ -16,7 +16,7 @@ namespace liba
                 {
                     Id = 1,
                     Login = "admin@gmail.com",
-                    Password = "AHQaxFuYJoGayJG+DDC9NNtkPAVDQCZEjIAySPOW4HdQZ+geFtMlk3Wu9L1mEjYrdA==",
+                    Password = "AHQaxFuYJoGayJG+DDC9NNtkPAVDQCZEjIAySPOW4HdQZ+geFtMlk3Wu9L1mEjYrdA==", //"admin"
                     Role = "admin"
                 }
             );
