@@ -31,8 +31,12 @@ namespace liba.Controllers
             string[] permittedextensions = { ".txt", ".pdf" };
             string[] permittedextensionsImg = { ".png", ".jpg", ".jpeg" };
 
- 
-            if(_db.Books.Where(x=>x.Title == b.title).Any())
+            if (Int32.Parse(b.year)>DateTime.Now.Year || Int32.Parse(b.year) < 0)
+            {
+                return BadRequest(new { message = "Please, select valid year!" });
+
+            }
+            if (_db.Books.Where(x=>x.Title == b.title).Any())
             {
                 return BadRequest(new { message = "There is already book with such name!"});
             }
@@ -142,6 +146,11 @@ namespace liba.Controllers
             string[] permittedextensionsImg = { ".png", ".jpg", ".jpeg" };
             try
             {
+                if (Int32.Parse(b.year) > DateTime.Now.Year || Int32.Parse(b.year) < 0)
+                {
+                    return BadRequest(new { message = "Please, select valid year!" });
+
+                }
                 var book1 = _db.Books.First(x => x.Id == b.id);
 
                 if (_db.Books.Where(x => x.Title == b.title).Any())
