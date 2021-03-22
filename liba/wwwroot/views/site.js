@@ -93,7 +93,6 @@ async function loadBooks(token, title="", author="", year1=0, year2=2025) {
                                     <h5 class="card-title">`+ number + `. ` + b.books[i]?.title + `</h5>
                                     <span>`+ b.books[i]?.author + `</span><br/>
                                     <span>Year: `+ b.books[i]?.year + `</span><br/>
-                                    <span >Downloads: `+ b.books[i]?.downloads + `</span>
                                     <img src="/StaticImages/download.png" width="20" style="float:right; cursor:pointer;" onclick="download(`+ b.books[i]?.id + `, '` + file + `')">
                                   </div>
                                 </div>`;
@@ -207,7 +206,8 @@ function download(id, url) {
     if (!token) {
         var params = { id: id };
         //url.search = new URLSearchParams(params).toString();
-        alert("Login or register!");
+        toastr.warning("Login or register to download book!")
+        //alert("Login or register!");
     }
     else {
         var params = { id: id };
@@ -234,7 +234,7 @@ async function getTokenAsync() {
 
     document.getElementById('errorLogin').innerHTML = "";
     if (!validateEmail(document.getElementById("emailLogin").value)) {
-        document.getElementById('errorLogin').innerHTML = "There is bad email!";   
+        document.getElementById('errorLogin').innerHTML = "This is bad email!";   
         return;
     }
     var log = JSON.stringify({ "login": document.getElementById("emailLogin").value, "password": document.getElementById("passwordLogin").value });
@@ -402,7 +402,7 @@ $('#signUp').
         }
         else if (!validateEmail(document.getElementById("orangeForm-email").value)) {
             document.getElementById('signEmailError').style.display = "block";
-            document.getElementById('signEmailError').innerHTML = "There is bad email!";
+            document.getElementById('signEmailError').innerHTML = "This is bad email!";
         }
         else {
             register();
